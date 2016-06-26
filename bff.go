@@ -82,8 +82,9 @@ func exec(program []byte, env *environment) {
 		case opMoveLeft:
 			if env.pos == 0 {
 				env.pos = len(env.cells) - 1
+			} else {
+				env.pos--
 			}
-			env.pos--
 		case opPrint:
 			fmt.Fprint(env.out, string(env.cells[env.pos]))
 		case opGetInput:
